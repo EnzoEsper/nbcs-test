@@ -1,0 +1,120 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
+
+import { color } from "../tokens/colors.tokens";
+
+<Meta title="Paleta de Colores" />
+
+# Colores
+
+<ColorPalette>
+  <ColorItem
+    title="theme.palette.primary.main"
+    subtitle="NBCH Blue"
+    colors={[color.primaryMain]}
+  />
+  <ColorItem
+    title="theme.palette.secondary.main"
+    subtitle="NBCH Light Blue"
+    colors={[color.secondaryMain]}
+  />
+  <br />
+  <br />
+  <ColorItem
+    title="theme.palette.background.default"
+    subtitle="NBCH Background default"
+    colors={[color.backgroundDefault]}
+  />
+  <br />
+  <br />
+  <ColorItem
+    title="theme.palette.text.primary"
+    subtitle="NBCH Text Primary"
+    colors={[color.textPrimary]}
+  />
+  <ColorItem
+    title="theme.palette.text.secondary"
+    subtitle="NBCH Text Secondary"
+    colors={[color.textSecondary]}
+  />
+  <br />
+  <br />
+  <ColorItem
+    title="theme.palette.error.main"
+    subtitle="NBCH Error Main"
+    colors={[color.errorMain]}
+  />
+  <ColorItem
+    title="theme.palette.warning.main"
+    subtitle="NBCH Warning Main"
+    colors={[color.warningMain]}
+  />
+  <ColorItem
+    title="theme.palette.info.main"
+    subtitle="NBCH Info Main"
+    colors={[color.infoMain]}
+  />
+  <ColorItem
+    title="theme.palette.success.main"
+    subtitle="NBCH Success Main"
+    colors={[color.successMain]}
+  />
+  <br />
+  <br />
+  <ColorItem
+    title="theme.palette.common.orange"
+    subtitle="Orange"
+    colors={[color.orange]}
+  />
+  <ColorItem
+    title="theme.palette.common.gold"
+    subtitle="Gold"
+    colors={[color.gold]}
+  />
+  <ColorItem
+    title="theme.palette.common.lightBlue"
+    subtitle="Light Blue"
+    colors={[color.lightBlue]}
+  />
+  <ColorItem
+    title="theme.palette.common.seafoam"
+    subtitle="Seafoam"
+    colors={[color.seafoam]}
+  />
+  <ColorItem
+    title="theme.palette.common.purple"
+    subtitle="Purple"
+    colors={[color.purple]}
+  />
+  <ColorItem
+    title="theme.palette.common.ultraviolet"
+    subtitle="Ultraviolet"
+    colors={[color.ultraviolet]}
+  />
+  <ColorItem
+    title="theme.palette.common.green"
+    subtitle="Green"
+    colors={[color.green]}
+  />
+  <ColorItem
+    title="theme.palette.common.grey"
+    subtitle="Grey"
+    colors={[color.grey]}
+  />
+  <br />
+  <br />
+  <ColorItem
+    title="Monochrome"
+    colors={[
+      color[900],
+      color[800],
+      color[700],
+      color[600],
+      color[500],
+      color[400],
+      color[300],
+      color[200],
+      color[100],
+      color[50],
+    ]}
+  />
+</ColorPalette>
