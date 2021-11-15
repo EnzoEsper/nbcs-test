@@ -2,13 +2,6 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import { fade } from "@material-ui/core/styles";
 import { color } from "../tokens/colors.tokens";
 
-// declare module "@material-ui/core/styles/createTypography" {
-//   interface FontStyle {
-//     tab: {};
-//     tableHeader: {};
-//   }
-// }
-
 export default createMuiTheme({
   palette: {
     primary: {
@@ -35,18 +28,6 @@ export default createMuiTheme({
       grey: color.grey,
     },
   },
-  // typography: {
-  //   tab: {
-  //     fontFamily: "Open Sans",
-  //     fontWeight: 600,
-  //     fontSize: "1rem",
-  //   },
-  //   tableHeader: {
-  //     fontFamily: "Raleway",
-  //     fontWeight: 500,
-  //     fontSize: "1rem",
-  //   },
-  // },
   overrides: {
     MuiInputLabel: {
       root: {
