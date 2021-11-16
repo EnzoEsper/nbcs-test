@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Tabs from "@material-ui/core/Tabs";
@@ -45,6 +45,16 @@ const NavBar = (props: NavBarProps) => {
   const handleChange = (e: React.ChangeEvent<{}>, value: number) => {
     setValue(value);
   };
+
+  useEffect(() => {
+    if (!props.mainNavTabs) return;
+
+    props.mainNavTabs.forEach((tab, index) => {
+      if (window.location.pathname === tab.path && value !== index) {
+        setValue(index);
+      }
+    });
+  }, [props.mainNavTabs, value]);
 
   return (
     <>
