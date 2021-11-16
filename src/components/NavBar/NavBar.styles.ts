@@ -7,9 +7,11 @@ export const useStyles = makeStyles((theme: Theme) =>
     appBar: {
       background: `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 90%)`,
     },
+    logoContainer: {
+      margin: "16px 0 16px 0",
+    },
     logo: {
       height: "2.6em",
-      margin: "16px 0 16px 0",
     },
     tabContainer: {},
     tab: {

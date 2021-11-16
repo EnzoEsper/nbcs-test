@@ -1,20 +1,24 @@
 // Generado con util/create-component.js
 import React from "react";
 import { Story, Meta } from "@storybook/react";
-import { ThemeProvider } from "@material-ui/styles";
-import theme from "../assets/Theme";
 
 import NavBar from "./NavBar";
 import { NavBarProps } from "./NavBar.types";
+import { BrowserRouter } from "react-router-dom";
 
 export default {
-  title: "Componentes/NavBar",
   component: NavBar,
+  title: "Componentes/NavBar",
 } as Meta;
 
-const Template: Story<NavBarProps> = (args) => <NavBar {...args} />;
+const Template: Story<NavBarProps> = (args) => (
+  <BrowserRouter>
+    <NavBar {...args} />
+  </BrowserRouter>
+);
 
-export const NavBarEjemplo = Template.bind({});
+export const DefaultNavBar = Template.bind({});
+DefaultNavBar.args = { logoUrl: "/productos" };
 // NavBarEjemplo.args = {
 //   logout: "",
 //   logoutURL: "",

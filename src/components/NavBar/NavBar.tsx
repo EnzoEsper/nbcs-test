@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Tabs from "@material-ui/core/Tabs";
@@ -8,6 +7,20 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import { useStyles } from "./NavBar.styles";
 import logo from "../assets/images/logo-cuadro.svg";
 import { Avatar, Button, Container } from "@material-ui/core";
+import { Link } from "react-router-dom";
+
+interface MainNavTab {
+  label?: string;
+  value?: string;
+  path?: string;
+  scopes?: string[];
+}
+interface NavBarProps {
+  userIsAuthenticated?: boolean;
+  userScopes?: string[];
+  mainNavTabs?: MainNavTab[];
+  logoUrl: string;
+}
 
 interface Props {
   children: React.ReactElement;
@@ -25,11 +38,11 @@ function ElevationScroll(props: Props) {
   });
 }
 
-export default function NavBar() {
+const NavBar = (props: NavBarProps) => {
   const classes = useStyles();
   const [value, setValue] = useState(0);
 
-  const handleChange = (e: any, value: number) => {
+  const handleChange = (e: React.ChangeEvent<{}>, value: number) => {
     setValue(value);
   };
 
@@ -38,7 +51,13 @@ export default function NavBar() {
       <AppBar position="fixed" className={classes.appBar}>
         <Container maxWidth="lg">
           <Toolbar disableGutters>
-            <img src={logo} alt="company logo" className={classes.logo} />
+            <Button
+              component={Link}
+              to={props.logoUrl}
+              className={classes.logoContainer}
+            >
+              <img src={logo} alt="nbch logo" className={classes.logo} />
+            </Button>
             <Tabs
               value={value}
               onChange={handleChange}
@@ -88,4 +107,6 @@ export default function NavBar() {
       </AppBar>
     </ElevationScroll>
   );
-}
+};
+
+export default NavBar;
