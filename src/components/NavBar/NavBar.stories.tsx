@@ -31,7 +31,7 @@ DefaultNavBar.args = {
       label: "Vinculaciones",
       value: "vinculaciones",
       path: "/vinculaciones",
-      scopes: ["read:vinculaciones"],
+      scopes: [],
     },
     {
       label: "Recaudaciones",

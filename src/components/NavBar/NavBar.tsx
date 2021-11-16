@@ -50,12 +50,14 @@ const NavBar = (props: NavBarProps) => {
   useEffect(() => {
     if (!props.mainNavTabs) return;
 
-    props.mainNavTabs.forEach((tab, index) => {
-      if (window.location.pathname === tab.path && value !== index) {
-        setValue(index);
+    filterTabsWithScopes(props.mainNavTabs, props.userScopes).forEach(
+      (tab, index) => {
+        if (window.location.pathname === tab.path && value !== index) {
+          setValue(index);
+        }
       }
-    });
-  }, [props.mainNavTabs, value]);
+    );
+  }, [props.mainNavTabs, props.userScopes, value]);
 
   // Recorrer el arreglo de tabs y filtrarlos segun el scope del usuario
   const filterTabsWithScopes = (
