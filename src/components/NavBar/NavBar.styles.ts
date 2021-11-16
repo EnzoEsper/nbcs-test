@@ -1,9 +1,15 @@
 // Generado con util/create-component.js
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { fade } from "@material-ui/core/styles/colorManipulator";
+import { alpha } from "@material-ui/core/styles/colorManipulator";
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    toolbarMargin: {
+      ...theme.mixins.toolbar,
+    },
+    extraToolbarMargin: {
+      marginBottom: "2em",
+    },
     appBar: {
       background: `linear-gradient(45deg, ${theme.palette.primary.main} 30%, ${theme.palette.secondary.main} 90%)`,
     },
@@ -130,15 +136,15 @@ export const useStyles = makeStyles((theme: Theme) =>
 //     borderRadius: 25,
 //     paddingLeft: theme.spacing(2.5),
 //     width: 36,
-//     backgroundColor: fade(theme.palette.common.black, 0),
+//     backgroundColor: alpha(theme.palette.common.black, 0),
 //     transition: theme.transitions.create(["background-color", "width"]),
 //     "&:hover": {
 //       cursor: "pointer",
-//       backgroundColor: fade(theme.palette.common.black, 0.08),
+//       backgroundColor: alpha(theme.palette.common.black, 0.08),
 //     },
 //   },
 //   searchFocused: {
-//     backgroundColor: fade(theme.palette.common.black, 0.08),
+//     backgroundColor: alpha(theme.palette.common.black, 0.08),
 //     width: "100%",
 //     [theme.breakpoints.up("md")]: {
 //       width: 250,

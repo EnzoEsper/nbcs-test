@@ -47,65 +47,69 @@ const NavBar = (props: NavBarProps) => {
   };
 
   return (
-    <ElevationScroll>
-      <AppBar position="fixed" className={classes.appBar}>
-        <Container maxWidth="lg">
-          <Toolbar disableGutters>
-            <Button
-              component={Link}
-              to={props.logoUrl}
-              className={classes.logoContainer}
-            >
-              <img src={logo} alt="nbch logo" className={classes.logo} />
-            </Button>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              className={classes.tabContainer}
-              aria-label="simple tabs example"
-              classes={{ indicator: classes.indicator }}
-            >
-              <Tab
-                disableRipple
-                label="Privados"
-                classes={{
-                  root: classes.tabRoot,
-                  selected: classes.selectedTab,
-                }}
-                className={classes.tab}
-              />
-              <Tab
-                disableRipple
-                label="Judiciales"
-                classes={{
-                  root: classes.tabRoot,
-                  selected: classes.selectedTab,
-                }}
-                className={classes.tab}
-              />
-              <Tab
-                disableRipple
-                label="Otros"
-                classes={{
-                  root: classes.tabRoot,
-                  selected: classes.selectedTab,
-                }}
-                className={classes.tab}
-              />
-            </Tabs>
-            <Avatar style={{ marginLeft: "auto" }}>EE</Avatar>
-            <Button
-              size="small"
-              variant="outlined"
-              color="secondary"
-              className={classes.button}
-            >
-              Cerrar sesión
-            </Button>
-          </Toolbar>
-        </Container>
-      </AppBar>
-    </ElevationScroll>
+    <>
+      <ElevationScroll>
+        <AppBar position="fixed" className={classes.appBar}>
+          <Container maxWidth="lg">
+            <Toolbar disableGutters>
+              <Button
+                component={Link}
+                to={props.logoUrl}
+                className={classes.logoContainer}
+              >
+                <img src={logo} alt="nbch logo" className={classes.logo} />
+              </Button>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                className={classes.tabContainer}
+                aria-label="simple tabs example"
+                classes={{ indicator: classes.indicator }}
+              >
+                <Tab
+                  disableRipple
+                  label="Privados"
+                  classes={{
+                    root: classes.tabRoot,
+                    selected: classes.selectedTab,
+                  }}
+                  className={classes.tab}
+                />
+                <Tab
+                  disableRipple
+                  label="Judiciales"
+                  classes={{
+                    root: classes.tabRoot,
+                    selected: classes.selectedTab,
+                  }}
+                  className={classes.tab}
+                />
+                <Tab
+                  disableRipple
+                  label="Otros"
+                  classes={{
+                    root: classes.tabRoot,
+                    selected: classes.selectedTab,
+                  }}
+                  className={classes.tab}
+                />
+              </Tabs>
+              <Avatar style={{ marginLeft: "auto" }}>EE</Avatar>
+              <Button
+                size="small"
+                variant="outlined"
+                color="secondary"
+                className={classes.button}
+              >
+                Cerrar sesión
+              </Button>
+            </Toolbar>
+          </Container>
+        </AppBar>
+      </ElevationScroll>
+      <div className={classes.toolbarMargin} />
+      <div className={classes.extraToolbarMargin} />
+    </>
   );
 };
 
