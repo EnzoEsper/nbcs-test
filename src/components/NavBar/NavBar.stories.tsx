@@ -18,7 +18,29 @@ const Template: Story<NavBarProps> = (args) => (
 );
 
 export const DefaultNavBar = Template.bind({});
-DefaultNavBar.args = { logoUrl: "/productos" };
+DefaultNavBar.args = {
+  logoUrl: "/productos",
+  mainNavTabs: [
+    {
+      label: "Acreditaciones",
+      value: "acreditaciones",
+      path: "/acreditaciones",
+      scopes: [],
+    },
+    {
+      label: "Vinculaciones",
+      value: "vinculaciones",
+      path: "/vinculaciones",
+      scopes: [],
+    },
+    {
+      label: "Recaudaciones",
+      value: "recaudaciones",
+      path: "/recaudaciones",
+      scopes: [],
+    },
+  ],
+};
 // NavBarEjemplo.args = {
 //   logout: "",
 //   logoutURL: "",

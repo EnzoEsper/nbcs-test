@@ -10,10 +10,10 @@ import { Avatar, Button, Container } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 interface MainNavTab {
-  label?: string;
-  value?: string;
-  path?: string;
-  scopes?: string[];
+  label: string;
+  value: string;
+  path: string;
+  scopes: string[];
 }
 interface NavBarProps {
   userIsAuthenticated?: boolean;
@@ -59,41 +59,57 @@ const NavBar = (props: NavBarProps) => {
               >
                 <img src={logo} alt="nbch logo" className={classes.logo} />
               </Button>
-              <Tabs
-                value={value}
-                onChange={handleChange}
-                className={classes.tabContainer}
-                aria-label="simple tabs example"
-                classes={{ indicator: classes.indicator }}
-              >
-                <Tab
-                  disableRipple
-                  label="Privados"
-                  classes={{
-                    root: classes.tabRoot,
-                    selected: classes.selectedTab,
-                  }}
-                  className={classes.tab}
-                />
-                <Tab
-                  disableRipple
-                  label="Judiciales"
-                  classes={{
-                    root: classes.tabRoot,
-                    selected: classes.selectedTab,
-                  }}
-                  className={classes.tab}
-                />
-                <Tab
-                  disableRipple
-                  label="Otros"
-                  classes={{
-                    root: classes.tabRoot,
-                    selected: classes.selectedTab,
-                  }}
-                  className={classes.tab}
-                />
-              </Tabs>
+              {props.mainNavTabs && (
+                <Tabs
+                  value={value}
+                  onChange={handleChange}
+                  className={classes.tabContainer}
+                  aria-label="simple tabs example"
+                  classes={{ indicator: classes.indicator }}
+                >
+                  {props.mainNavTabs.map((tab) => (
+                    <Tab
+                      component={Link}
+                      to={tab.path}
+                      disableRipple
+                      label={tab.label}
+                      classes={{
+                        root: classes.tabRoot,
+                        selected: classes.selectedTab,
+                      }}
+                      className={classes.tab}
+                    />
+                  ))}
+                  {/* <Tab
+                    disableRipple
+                    label="Privados"
+                    classes={{
+                      root: classes.tabRoot,
+                      selected: classes.selectedTab,
+                    }}
+                    className={classes.tab}
+                  />
+                  <Tab
+                    disableRipple
+                    label="Judiciales"
+                    classes={{
+                      root: classes.tabRoot,
+                      selected: classes.selectedTab,
+                    }}
+                    className={classes.tab}
+                  />
+                  <Tab
+                    disableRipple
+                    label="Otros"
+                    classes={{
+                      root: classes.tabRoot,
+                      selected: classes.selectedTab,
+                    }}
+                    className={classes.tab}
+                  /> */}
+                </Tabs>
+              )}
+
               <Avatar style={{ marginLeft: "auto" }}>EE</Avatar>
               <Button
                 size="small"
