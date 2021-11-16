@@ -25,21 +25,23 @@ DefaultNavBar.args = {
       label: "Acreditaciones",
       value: "acreditaciones",
       path: "/acreditaciones",
-      scopes: [],
+      scopes: ["read:acreditaciones"],
     },
     {
       label: "Vinculaciones",
       value: "vinculaciones",
       path: "/vinculaciones",
-      scopes: [],
+      scopes: ["read:vinculaciones"],
     },
     {
       label: "Recaudaciones",
       value: "recaudaciones",
       path: "/recaudaciones",
-      scopes: [],
+      scopes: ["read:recaudaciones"],
     },
   ],
+  userIsAuthenticated: true,
+  userScopes: ["read:acreditaciones", "read:recaudaciones"],
 };
 // NavBarEjemplo.args = {
 //   logout: "",

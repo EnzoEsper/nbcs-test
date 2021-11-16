@@ -8,6 +8,7 @@ import { useStyles } from "./NavBar.styles";
 import logo from "../assets/images/logo-cuadro.svg";
 import { Avatar, Button, Container } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { userHasScopes } from "../../utils/userHasScopes";
 
 interface MainNavTab {
   label: string;
@@ -16,8 +17,8 @@ interface MainNavTab {
   scopes: string[];
 }
 interface NavBarProps {
-  userIsAuthenticated?: boolean;
-  userScopes?: string[];
+  userIsAuthenticated: boolean;
+  userScopes: string[];
   mainNavTabs?: MainNavTab[];
   logoUrl: string;
 }
@@ -56,6 +57,14 @@ const NavBar = (props: NavBarProps) => {
     });
   }, [props.mainNavTabs, value]);
 
+  // Recorrer el arreglo de tabs y filtrarlos segun el scope del usuario
+  const filterTabsWithScopes = (
+    mainNavTabs: MainNavTab[],
+    userScopes: string[]
+  ) => {
+    return mainNavTabs.filter((tab) => userHasScopes(userScopes, tab.scopes));
+  };
+
   return (
     <>
       <ElevationScroll>
@@ -69,7 +78,7 @@ const NavBar = (props: NavBarProps) => {
               >
                 <img src={logo} alt="nbch logo" className={classes.logo} />
               </Button>
-              {props.mainNavTabs && (
+              {props.userIsAuthenticated && props.mainNavTabs && (
                 <Tabs
                   value={value}
                   onChange={handleChange}
@@ -77,7 +86,10 @@ const NavBar = (props: NavBarProps) => {
                   aria-label="simple tabs example"
                   classes={{ indicator: classes.indicator }}
                 >
-                  {props.mainNavTabs.map((tab) => (
+                  {filterTabsWithScopes(
+                    props.mainNavTabs,
+                    props.userScopes
+                  ).map((tab) => (
                     <Tab
                       component={Link}
                       to={tab.path}
@@ -90,6 +102,7 @@ const NavBar = (props: NavBarProps) => {
                       className={classes.tab}
                     />
                   ))}
+
                   {/* <Tab
                     disableRipple
                     label="Privados"
