@@ -1,6 +1,5 @@
 // Generado con util/create-component.js
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { alpha } from "@material-ui/core/styles/colorManipulator";
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,15 +27,11 @@ export const useStyles = makeStyles((theme: Theme) =>
       marginLeft: "35px",
       fontWeight: 500,
     },
-    button: {
+    authButton: {
       borderRadius: "50px",
       borderColor: "white",
-      marginLeft: "25px",
-      // marginRight: "25px",
-      color: "white",
-      fontSize: "12px",
       fontFamily: "Raleway",
-      fontWeight: 600,
+      color: "white",
     },
     indicator: {
       backgroundColor: "white",

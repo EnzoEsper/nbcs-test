@@ -3,41 +3,16 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import { useStyles } from "./NavBar.styles";
-import logo from "../assets/images/logo-cuadro.svg";
-import { Avatar, Button, Container } from "@material-ui/core";
+import NBCHlogoCuadro from "../assets/images/logo-cuadro.svg";
+import NBCHlogo from "../assets/images/nbch-logo.svg";
+import { Button, Container } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { userHasScopes } from "../../utils/userHasScopes";
-
-interface MainNavTab {
-  label: string;
-  value: string;
-  path: string;
-  scopes: string[];
-}
-interface NavBarProps {
-  userIsAuthenticated: boolean;
-  userScopes: string[];
-  mainNavTabs?: MainNavTab[];
-  logoUrl: string;
-}
-
-interface Props {
-  children: React.ReactElement;
-}
-
-function ElevationScroll(props: Props) {
-  const { children } = props;
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-  });
-
-  return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
-  });
-}
+import BotonPerfil from "../BotonPerfil";
+import BotonAuth from "../BotonAuth";
+import { MainNavTab, NavBarProps } from "./NavBar.types";
+import { ElevationScroll } from "./ElevationScroll";
 
 const NavBar = (props: NavBarProps) => {
   const classes = useStyles();
@@ -59,7 +34,7 @@ const NavBar = (props: NavBarProps) => {
     );
   }, [props.mainNavTabs, props.userScopes, value]);
 
-  // Recorrer el arreglo de tabs y filtrarlos segun el scope del usuario
+  // Recorre el arreglo de tabs y los filtra segun el scope del usuario
   const filterTabsWithScopes = (
     mainNavTabs: MainNavTab[],
     userScopes: string[]
@@ -78,7 +53,11 @@ const NavBar = (props: NavBarProps) => {
                 to={props.logoUrl}
                 className={classes.logoContainer}
               >
-                <img src={logo} alt="nbch logo" className={classes.logo} />
+                <img
+                  src={props.userIsAuthenticated ? NBCHlogoCuadro : NBCHlogo}
+                  alt="nbch logo"
+                  className={classes.logo}
+                />
               </Button>
               {props.userIsAuthenticated && props.mainNavTabs && (
                 <Tabs
@@ -104,46 +83,22 @@ const NavBar = (props: NavBarProps) => {
                       className={classes.tab}
                     />
                   ))}
-
-                  {/* <Tab
-                    disableRipple
-                    label="Privados"
-                    classes={{
-                      root: classes.tabRoot,
-                      selected: classes.selectedTab,
-                    }}
-                    className={classes.tab}
-                  />
-                  <Tab
-                    disableRipple
-                    label="Judiciales"
-                    classes={{
-                      root: classes.tabRoot,
-                      selected: classes.selectedTab,
-                    }}
-                    className={classes.tab}
-                  />
-                  <Tab
-                    disableRipple
-                    label="Otros"
-                    classes={{
-                      root: classes.tabRoot,
-                      selected: classes.selectedTab,
-                    }}
-                    className={classes.tab}
-                  /> */}
                 </Tabs>
               )}
 
-              <Avatar style={{ marginLeft: "auto" }}>EE</Avatar>
-              <Button
-                size="small"
-                variant="outlined"
-                color="secondary"
-                className={classes.button}
-              >
-                Cerrar sesión
-              </Button>
+              {props.userIsAuthenticated ? (
+                <BotonPerfil
+                  logout={() => props.logout()}
+                  logoutReturnUrl={props.logoutReturnUrl}
+                  userPicture={props.userPicture}
+                />
+              ) : null}
+
+              <BotonAuth
+                userIsAuthenticated={props.userIsAuthenticated}
+                loginWithRedirect={() => props.loginWithRedirect()}
+                logout={() => props.logout()}
+              />
             </Toolbar>
           </Container>
         </AppBar>

@@ -1,8 +1,6 @@
 // Generado con util/create-component.js
 import React from "react";
 import { Story, Meta } from "@storybook/react";
-import { ThemeProvider } from "@material-ui/styles";
-import theme from "../assets/Theme";
 import StepperHorizontal from "./StepperHorizontal";
 import { Step, StepperHorizontalProps } from "./StepperHorizontal.types";
 
@@ -29,12 +27,10 @@ const steps: Step[] = [
 ];
 
 const Template: Story<StepperHorizontalProps> = (args) => (
-  <ThemeProvider theme={theme}>
-    <StepperHorizontal {...args} />
-  </ThemeProvider>
+  <StepperHorizontal {...args} />
 );
 
 export const Default = Template.bind({});
 Default.args = {
-  steps
+  steps,
 };

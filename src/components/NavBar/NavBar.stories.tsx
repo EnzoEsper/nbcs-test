@@ -1,10 +1,9 @@
-// Generado con util/create-component.js
 import React from "react";
 import { Story, Meta } from "@storybook/react";
-
 import NavBar from "./NavBar";
 import { NavBarProps } from "./NavBar.types";
 import { BrowserRouter } from "react-router-dom";
+import { action } from "@storybook/addon-actions";
 
 export default {
   component: NavBar,
@@ -17,9 +16,9 @@ const Template: Story<NavBarProps> = (args) => (
   </BrowserRouter>
 );
 
-export const DefaultNavBar = Template.bind({});
-DefaultNavBar.args = {
-  logoUrl: "/productos",
+export const Default = Template.bind({});
+Default.args = {
+  logoUrl: "/acreditaciones",
   mainNavTabs: [
     {
       label: "Acreditaciones",
@@ -31,7 +30,7 @@ DefaultNavBar.args = {
       label: "Vinculaciones",
       value: "vinculaciones",
       path: "/vinculaciones",
-      scopes: [],
+      scopes: ["read:vinculaciones"],
     },
     {
       label: "Recaudaciones",
@@ -41,21 +40,9 @@ DefaultNavBar.args = {
     },
   ],
   userIsAuthenticated: true,
+  userPicture: "https://i.pravatar.cc/300",
+  logout: action("logout button clicked"),
+  logoutReturnUrl: "/",
+  loginWithRedirect: action("login button clicked"),
   userScopes: ["read:acreditaciones", "read:recaudaciones"],
 };
-// NavBarEjemplo.args = {
-//   logout: "",
-//   logoutURL: "",
-//   perfilPath: "",
-//   linkComponent: "",
-//   tabs: [
-//     { label: "Productos", value: "/productos", path: "/productos", scopes: [] },
-//     {
-//       label: "Solicitudes",
-//       value: "/solicitudes",
-//       path: "/solicitudes",
-//       scopes: [],
-//     },
-//     { label: "Embozados", value: "/embozados", path: "/embozados", scopes: [] },
-//   ],
-// };

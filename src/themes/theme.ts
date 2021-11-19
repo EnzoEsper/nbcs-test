@@ -1,8 +1,7 @@
-import { createMuiTheme } from "@material-ui/core/styles";
-import { fade } from "@material-ui/core/styles";
+import { createTheme, alpha } from "@material-ui/core/styles";
 import { color } from "../tokens/colors.tokens";
 
-export default createMuiTheme({
+export default createTheme({
   palette: {
     primary: {
       main: color.primaryMain,
@@ -28,6 +27,13 @@ export default createMuiTheme({
       grey: color.grey,
     },
   },
+  typography: {
+    authButton: {
+      fontFamily: "Raleway",
+      fontSize: "0.8rem",
+      color: "white",
+    },
+  },
   overrides: {
     MuiInputLabel: {
       root: {
@@ -43,7 +49,7 @@ export default createMuiTheme({
         },
         "&:hover:not($disabled):not($focused):not($error) $notchedOutline": {
           borderColor: color.primaryMain,
-          boxShadow: `2px 2px 2px 0px ${fade(color.primaryMain, 0.2)}`,
+          boxShadow: `2px 2px 2px 0px ${alpha(color.primaryMain, 0.2)}`,
           // Reset on touch devices, it doesn't add specificity
           "@media (hover: none)": {
             color: color.primaryMain,
@@ -70,5 +76,11 @@ declare module "@material-ui/core/styles/createPalette" {
     ultraviolet: string;
     green: string;
     grey: string;
+  }
+}
+
+declare module "@material-ui/core/styles/createTypography" {
+  interface FontStyle {
+    authButton: {};
   }
 }
