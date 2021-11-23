@@ -88,7 +88,7 @@ const NavBar = (props: NavBarProps) => {
 
               {props.userIsAuthenticated ? (
                 <BotonPerfil
-                  logout={() => props.logout()}
+                  logout={props.logout}
                   logoutReturnUrl={props.logoutReturnUrl}
                   userPicture={props.userPicture}
                 />
@@ -96,8 +96,8 @@ const NavBar = (props: NavBarProps) => {
 
               <BotonAuth
                 userIsAuthenticated={props.userIsAuthenticated}
-                loginWithRedirect={() => props.loginWithRedirect()}
-                logout={() => props.logout()}
+                loginWithRedirect={props.loginWithRedirect}
+                logout={props.logout}
               />
             </Toolbar>
           </Container>

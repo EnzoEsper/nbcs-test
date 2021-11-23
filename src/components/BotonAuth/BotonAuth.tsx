@@ -7,9 +7,9 @@ import { BotonAuthProps } from "./BotonAuth.types";
 
 const BotonAuth = (props: BotonAuthProps) => {
   return props.userIsAuthenticated ? (
-    <BotonLogout logout={() => props.logout()} />
+    <BotonLogout logout={props.logout} />
   ) : (
-    <BotonLogin loginWithRedirect={() => props.loginWithRedirect()} />
+    <BotonLogin loginWithRedirect={props.loginWithRedirect} />
   );
 };
 
