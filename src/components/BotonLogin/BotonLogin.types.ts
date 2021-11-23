@@ -1,3 +1,6 @@
+import { RedirectLoginOptions } from "@auth0/auth0-react";
 export interface BotonLoginProps {
-  loginWithRedirect: () => void;
+  loginWithRedirect: (
+    options?: RedirectLoginOptions | undefined
+  ) => Promise<void>;
 }

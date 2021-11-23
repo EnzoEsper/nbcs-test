@@ -1,3 +1,5 @@
+import { RedirectLoginOptions } from "@auth0/auth0-react";
+
 export interface NavBarProps {
   userIsAuthenticated: boolean;
   userScopes: string[];
@@ -5,7 +7,9 @@ export interface NavBarProps {
   logoUrl: string;
   logout: () => void;
   logoutReturnUrl: string;
-  loginWithRedirect: () => void;
+  loginWithRedirect: (
+    options?: RedirectLoginOptions | undefined
+  ) => Promise<void>;
   userPicture: string;
 }
 
