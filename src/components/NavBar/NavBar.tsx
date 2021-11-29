@@ -103,8 +103,10 @@ const NavBar = (props: NavBarProps) => {
           </Container>
         </AppBar>
       </ElevationScroll>
-      <div className={classes.toolbarMargin} />
-      <div className={classes.extraToolbarMargin} />
+      {props.userIsAuthenticated && <div className={classes.toolbarMargin} />}
+      {props.userIsAuthenticated && (
+        <div className={classes.extraToolbarMargin} />
+      )}
     </>
   );
 };
