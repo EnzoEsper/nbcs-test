@@ -1,3 +1,3 @@
 export interface AvatarPerfilProps {
-  userPicture: string;
+  userPicture: undefined | string;
 }
