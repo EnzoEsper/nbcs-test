@@ -10,7 +10,7 @@ export interface NavBarProps {
   loginWithRedirect: (
     options?: RedirectLoginOptions | undefined
   ) => Promise<void>;
-  userPicture: string;
+  userPicture: undefined | string;
 }
 
 export interface MainNavTab {
