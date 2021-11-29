@@ -32,7 +32,7 @@ const BotonPerfil = (props: BotonPerfilProps) => {
         onMouseOver={(event) => handleMenu(event)}
         style={{ padding: "0", marginRight: "15px" }}
       >
-        <AvatarPerfil userPicture={props.userPicture} />
+        <AvatarPerfil userPicture={props.userPicture || ""} />
       </IconButton>
       <Menu
         id="profile-menu"
