@@ -34,36 +34,36 @@ export default createTheme({
       color: "white",
     },
   },
-  overrides: {
-    MuiInputLabel: {
-      root: {
-        color: color.primaryMain,
-        fontSize: "1rem",
-      },
-    },
-    MuiOutlinedInput: {
-      root: {
-        background: "white",
-        "& $notchedOutline": {
-          color: color.primaryMain,
-        },
-        "&:hover:not($disabled):not($focused):not($error) $notchedOutline": {
-          borderColor: color.primaryMain,
-          boxShadow: `2px 2px 2px 0px ${alpha(color.primaryMain, 0.2)}`,
-          // Reset on touch devices, it doesn't add specificity
-          "@media (hover: none)": {
-            color: color.primaryMain,
-          },
-        },
-        "&$focused $notchedOutline": {
-          borderWidth: 2,
-        },
-      },
-      notchedOutline: {
-        borderColor: color.primaryMain,
-      },
-    },
-  },
+  // overrides: {
+  //   MuiInputLabel: {
+  //     root: {
+  //       color: color.primaryMain,
+  //       fontSize: "1rem",
+  //     },
+  //   },
+  //   MuiOutlinedInput: {
+  //     root: {
+  //       background: "white",
+  //       "& $notchedOutline": {
+  //         color: color.primaryMain,
+  //       },
+  //       "&:hover:not($disabled):not($focused):not($error) $notchedOutline": {
+  //         borderColor: color.primaryMain,
+  //         boxShadow: `2px 2px 2px 0px ${alpha(color.primaryMain, 0.2)}`,
+  //         // Reset on touch devices, it doesn't add specificity
+  //         "@media (hover: none)": {
+  //           color: color.primaryMain,
+  //         },
+  //       },
+  //       "&$focused $notchedOutline": {
+  //         borderWidth: 2,
+  //       },
+  //     },
+  //     notchedOutline: {
+  //       borderColor: color.primaryMain,
+  //     },
+  //   },
+  // },
 });
 
 declare module "@material-ui/core/styles/createPalette" {
