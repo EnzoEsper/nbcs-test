@@ -34,6 +34,14 @@ export default createTheme({
       color: "white",
     },
   },
+  overrides: {
+    MuiOutlinedInput: {
+      root: {
+        background: "white",
+      },
+    },
+  },
+
   // overrides: {
   //   MuiInputLabel: {
   //     root: {
