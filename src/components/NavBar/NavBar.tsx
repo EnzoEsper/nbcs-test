@@ -46,7 +46,7 @@ const NavBar = (props: NavBarProps) => {
     <>
       <ElevationScroll>
         <AppBar position="fixed" className={classes.appBar}>
-          <Container maxWidth="lg">
+          <Container maxWidth="xl">
             <Toolbar disableGutters>
               <Button
                 component={Link}
