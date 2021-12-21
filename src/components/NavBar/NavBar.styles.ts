@@ -48,6 +48,31 @@ export const useStyles = makeStyles((theme: Theme) =>
     selectedTab: {
       color: "white",
     },
+    menu: {
+      // background: `linear-gradient(45deg, ${theme.palette.primary.main} 90%, ${theme.palette.secondary.main} 90%)`,
+      backgroundColor: theme.palette.primary.main,
+      color: "white",
+    },
+    menuItem: {
+      fontFamily: "Raleway",
+      fontSize: "14px",
+      textTransform: "none",
+      fontWeight: 500,
+      opacity: 0.7,
+      "&:hover": {
+        opacity: 1,
+      },
+    },
+    menuItemSelected: {
+      fontFamily: "Raleway",
+      fontSize: "14px",
+      textTransform: "none",
+      fontWeight: 500,
+      opacity: 1,
+      "&:hover": {
+        opacity: 1,
+      },
+    },
   })
 );
 
